@@ -60,7 +60,7 @@ const Quiz = () => {
         </ul>
       )}
 
-      //* func created in "onClick" method to show next question and options
+      {/* //* func created in "onClick" method to show next question and options */}
       <button onClick={() => setIndex(index + 1)}>Next</button>
     </>
   );

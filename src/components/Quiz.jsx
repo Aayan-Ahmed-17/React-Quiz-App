@@ -12,6 +12,7 @@ const Quiz = () => {
       try {
         const res = await fetch("https://the-trivia-api.com/v2/questions");
         const data = await res.json();
+        console.log(data);
 
         setQuestions(data.map((e) => e.question.text));
         setIncorrectOpts(data.map((e) => e.incorrectAnswers));
@@ -45,11 +46,15 @@ const Quiz = () => {
 
   return (
     <>
+      {questions && console.log(questions[index])}
       {questions && questions[index]}
-      {opts &&
-        opts[index].map((e, i) => {
-          return <li key={i} onClick={() => {console.log(e)}}>{e}</li>;
-        })}
+      {opts && (
+        <ul>
+          {opts[index].map((e, i) => {
+            return <li key={i} onClick={() => console.log(e)}>{e}</li>;
+          })}
+        </ul>
+      )}
 
       <button onClick={() => setIndex(index + 1)}>Next</button>
     </>
@@ -57,3 +62,4 @@ const Quiz = () => {
 };
 
 export default Quiz;
+

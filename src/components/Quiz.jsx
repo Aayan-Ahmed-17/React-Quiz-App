@@ -52,13 +52,15 @@ const Quiz = () => {
     <>
       {questions && console.log(questions[index])}
       {questions && questions[index]}
-      {opts && (
-        <ul>
-          {opts[index].map((e, i) => {
-            return <li key={i} onClick={() => console.log(e)}>{e}</li>;
-          })}
-        </ul>
-      )}
+      {opts &&
+        opts[index].map((e, i) => {
+          return (
+            <div>
+              <input type="radio" name='question' id={i} onClick={() => console.log(e)} />
+              <label htmlFor={i}>{e}</label>
+            </div>
+          );
+        })}
 
       {/* //* func created in "onClick" method to show next question and options */}
       <button onClick={() => setIndex(index + 1)}>Next</button>
@@ -67,4 +69,3 @@ const Quiz = () => {
 };
 
 export default Quiz;
-

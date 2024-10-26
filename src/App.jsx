@@ -1,11 +1,10 @@
-import { useState } from "react";
+import './index.css';
 import Quiz from "./components/quiz";
 function App() {
-  const [count, setCount] = useState(0);
 
   return (
     <>
-      <h1>App.jsx</h1>
+      <h1 className="text-3xl font-bold underline">App.jsx</h1>
       <Quiz />
     </>
   );

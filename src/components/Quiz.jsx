@@ -7,6 +7,7 @@ const Quiz = () => {
   const [opts, setOpts] = useState(null);
   const [index, setIndex] = useState(0);
 
+  //* For Data Fetching
   useEffect(() => {
     async function fetchData() {
       try {
@@ -24,6 +25,7 @@ const Quiz = () => {
     fetchData();
   }, []);
 
+  //* Call shuffleArr func when incorrectOpts & ans filled with data
   useEffect(() => {
     if (incorrectOpts && ans) {
       async function shuffleData() {
@@ -34,6 +36,7 @@ const Quiz = () => {
     }
   }, [incorrectOpts, ans]);
 
+  //* func to put correct ans at random index
   function shuffleArr(arr1, arr2) {
     const newArr = [];
     for (let i = 0; i < 10; i++) {
@@ -44,6 +47,7 @@ const Quiz = () => {
     return newArr;
   }
 
+  //* Rendering data
   return (
     <>
       {questions && console.log(questions[index])}
@@ -56,6 +60,7 @@ const Quiz = () => {
         </ul>
       )}
 
+      //* func created in "onClick" method to show next question and options
       <button onClick={() => setIndex(index + 1)}>Next</button>
     </>
   );
